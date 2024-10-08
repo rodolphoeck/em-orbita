@@ -30,4 +30,7 @@ jobs:
         ## if: github.ref == 'refs/heads/master'
         shell: alpine.sh {0}
         run: |
-          hut help
+          mkdir -p ~/.config/hut
+          echo "instance \"sr.ht\" { access-token-cmd echo \$SRHT_TOKEN }" > ~/.config/hut/config
+          cat ~/.config/hut/config
+          hut meta show
