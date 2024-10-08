@@ -29,6 +29,8 @@ jobs:
       - name: Push
         ## if: github.ref == 'refs/heads/master'
         shell: alpine.sh {0}
+        env:
+          SRHT_TOKEN: ${{ secrets.SRHT_TOKEN }}
         run: |
           mkdir -p ~/.config/hut
           echo "instance \"sr.ht\" {" > ~/.config/hut/config
