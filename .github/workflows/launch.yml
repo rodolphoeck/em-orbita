@@ -22,12 +22,13 @@ jobs:
           cd orbita
           tar -cvz . > ../site.tar.gz
       - name: Setup Alpine Linux
+        if: github.ref == 'refs/heads/master'
         uses: jirutka/setup-alpine@v1
         with:
           packages: >
             hut
       - name: Push
-        ## if: github.ref == 'refs/heads/master'
+        if: github.ref == 'refs/heads/master'
         shell: alpine.sh {0}
         env:
           SRHT_TOKEN: ${{ secrets.SRHT_TOKEN }}
@@ -36,4 +37,4 @@ jobs:
           echo "instance \"sr.ht\" {" > ~/.config/hut/config
           echo "    access-token \"$SRHT_TOKEN\"" >> ~/.config/hut/config
           echo "}" >> ~/.config/hut/config
-          hut --config ~/.config/hut/config meta show
+          hut --config ~/.config/hut/config pages publish -d em-orbita.com.br -p GEMINI site.tar.gz
