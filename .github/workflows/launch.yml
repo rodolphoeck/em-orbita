@@ -28,5 +28,6 @@ jobs:
             hut
       - name: Push
         ## if: github.ref == 'refs/heads/master'
+        shell: alpine.sh {0}
         run: |
           hut help
