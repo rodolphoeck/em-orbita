@@ -17,3 +17,16 @@ jobs:
       - name: Launch
         run: |
           ./foguete
+      - name: Package
+        run: |
+          cd orbita
+          tar -cvz . > ../site.tar.gz
+      - name: Setup Alpine Linux
+        uses: jirutka/setup-alpine@v1
+        with:
+          packages: >
+            hut
+      - name: Push
+        ## if: github.ref == 'refs/heads/master'
+        run: |
+          hut help
