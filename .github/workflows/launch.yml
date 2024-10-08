@@ -34,7 +34,7 @@ jobs:
         run: |
           mkdir -p ~/.config/hut
           echo "instance \"sr.ht\" {" > ~/.config/hut/config
-          echo "    access-token-cmd echo \$SRHT_TOKEN" >> ~/.config/hut/config
+          echo "    access-token echo $SRHT_TOKEN" >> ~/.config/hut/config
           echo "}" >> ~/.config/hut/config
           cat ~/.config/hut/config
           hut --config ~/.config/hut/config meta show
