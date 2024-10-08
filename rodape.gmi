@@ -1,0 +1,7 @@
+
+### Como adicionar sua cápsula à lista
+
+Você pode me enviar um email ou adicionar diretamente no repositório:
+
+=> https://git.sr.ht/~rodolphoeck/em-orbita Repositório
+=> mailto:contato@em-orbita.com.br
